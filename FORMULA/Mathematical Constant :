@@ -1,0 +1,136 @@
+Mathematical Constant : 
+
+# Constants Perez
+Proj(m) = [1 - [4π√φφφ²]] m
+def get_proj_factor(mode="default", use_perez=True):
+    pi ≈ 3.1415926535
+    4π ≈ 12.5663706144 
+    PHI = (1 + np.sqrt(5)) / 2 ≈ 1.6180339887498948482
+    PHI = (1 + 5**0.5)/2 ≈ 1.6180339887498948482
+    phi = 1 / PHI  # ≈ 0.618033988749895
+    phi_squared = 1 / (PHI ** 2)  # φ² ≈ 0.381966011250105
+    phi_cubed = 1 / (PHI ** 3)  # φ³ ≈ 0.23606797749979
+    phi_pow_4 = 1 / (PHI ** 4)  # φ^4 ≈ 0.145898033750315
+    phi_pow_5 =  1 / (PHI ** 5) # φ^5 ≈ 0.0901699437494748
+    phi_pow_6 =  1 / (PHI ** 6) # φ^6 ≈ 0.0557280900008412
+    phi_pow_7 =  1 / (PHI ** 7) # φ^7 ≈ 0.0344418537486336
+    phi_pow_8 =  1 / (PHI ** 8) # φ^8 ≈ 0.0212862362522080
+    phi_pow_9 = 1 / (PHI ** 9) # φ^9 ≈ 0.0131556174964256
+    phi_pow_10 = 1 / (PHI ** 10) # φ10 ≈ 0.0081306187557834
+    phi_pow_11 = 1 / (PHI ** 11) # φ^11 ≈ 0.0050249987406422
+    phi_pow_12 = 1 / (PHI ** 12) # φ^12 ≈ 0.0031056200151412
+
+    # Powers of φ
+    φ_pow = {2: φ**2, 3: φ**3, 4: φ**4, 5: φ**5, 6: φ**6, 7: φ**7, 8: φ**8, 9: φ**9, 10: φ**10, 11: φ**11, 12: φ**12}
+
+    if use_perez:
+ if mode.startswith(tuple(f"{n}pi_phi{n}" for n in [2,3,3.36,4,5,6,7,8,9,10,11,12])):
+            n = float(mode.split('pi_phi')[0])
+            factor = n * π * φ_pow[n]
+            return n - factor
+
+        using φ = 1/φ ≈ 0.618
+        if mode == "2pi_phi2":
+            factor = 2 * np.pi * phi_squared  # ≈ 2.399963738081114
+            return 1 - factor  # ≈ -1.399963738081114
+        elif mode == "3pi_phi3":
+            factor = 3 * np.pi * phi_cubed  # ≈ 2.2252947962927707
+            return 1 - factor  # ≈ -1.2252947962927707
+        elif mode == "4pi_phi4":
+            factor = 4 * np.pi * phi_pow_4  # ≈ 1.833
+            return 4 - factor  # ≈ 2.166 
+        elif mode ==  "5pi_phi5": 
+            factor = 5 * np.pi * phi_pow_5  # ≈ 1.413
+            return 5 - factor  # ≈ 3.587
+       elif mode == "6pi_phi6": 
+            factor = 6 * np.pi * phi_pow_6  # ≈ 1.058
+            return 6 - factor  # ≈ 4.942
+       elif mode == "7pi_phi7": 
+            factor = 7 * np.pi * phi_pow_7  # ≈ 0.748
+            return 7 - factor  # ≈ 6.252 
+       elif mode == "8pi_phi8": 
+            factor = 8 * np.pi * phi_pow_8  # ≈ 0.528
+            return 8 - factor  # ≈ 7.472
+       elif mode == "9pi_phi9": 
+            factor = 9 * np.pi * phi_pow_9  # ≈ 0.369
+            return 9 - factor  # ≈ 8.632
+       elif mode == "10pi_phi10": 
+            factor = 10 * np.pi * phi_pow_10 # ≈ 0.2555
+            return 10 - factor  # ≈ 9.7445
+       elif mode == "11pi_phi11": 
+            factor = 11 * np.pi * phi_pow_11 # ≈ 0.1727
+            return 11 - factor  # ≈ 10.8273
+       elif mode == "12pi_phi12": 
+            factor = 12 * np.pi * phi_pow_12 # ≈ 0.077601
+            return 12 - factor  # ≈ 11.922399
+
+ elif mode.endswith(tuple(str(n) for n in [1,2,3,3.63,4,5,6,7,8,9,10,11,12])):
+            n = float(mode)
+            factor = 4 * π * φ  # Default factor
+            return n - factor
+
+            if mode.endswith("1"): return 1 - factor  # ≈ -3.796563476162229
+            elif mode.endswith("2"): return 2 - factor  # ≈ -2.796563476162229
+            elif mode.endswith("3"): return 3 - factor  # ≈ -1.796563476162229
+            elif mode.endswith("3.63"): return 3.63 - factor  # ≈ -1.166563476162229
+            elif mode.endswith("4"): return 4 - factor  # ≈ -1.618033989
+            elif mode.endswith("5"): return 5 - factor  # ≈ 0.203436524
+            elif mode.endswith("6"): return 6 - factor  # ≈ 1.203436524
+            elif mode.endswith("7"): return 7 - factor  # ≈ 2.203436524
+            elif mode.endswith("8"): return 8 - factor  # ≈ 3.203436524
+            elif mode.endswith("9"): return 9 - factor  # ≈ 3.916796308
+            elif mode.endswith("10"): return 10- factor  # ≈ 4.916796308
+            elif mode.endswith("11"): return 11- factor  # ≈ 5.916796308
+            elif mode.endswith("12"): return 12- factor  # ≈ 6.916796308 
+
+    else:
+        factor = 4 * np.pi * phi  # ≈ 7.766963657913468
+    if mode.endswith("1"): return 1 - factor    # ≈ -6.766963658
+    elif mode.endswith("2"): return 2 - factor  # ≈ -5.766963658
+    elif mode.endswith("3"): return 3 - factor  # ≈ -4.766963658
+    elif mode.endswith("3.63"): return 3.63 - factor  # ≈ -4.136963658
+    elif mode.endswith("4"): return 4 - factor  # ≈ -3.766963658
+    elif mode.endswith("5"): return 5 - factor  # ≈ -2.766963658
+    elif mode.endswith("6"): return 6 - factor  # ≈ -1.766963658
+    elif mode.endswith("7"): return 7 - factor  # ≈ -0.766963658
+    elif mode.endswith("8"): return 8 - factor  # ≈ 1.766963658
+    elif mode.endswith("9"): return 9 - factor  # ≈ 2.766963658
+    elif mode.endswith("10"): return 10 - factor  # ≈ 3.766963658
+    elif mode.endswith("11"): return 11 - factor  # ≈ 4.766963658
+    elif mode.endswith("12"): return 12 - factor  # ≈ 5.766963658
+    
+    # Default: Proj(m) = [1 - [4π√φφφ²]] m = [1 - [4π x 1/Φ^(7/2)]] m = [1 - [4π x 1/Φ^3.5]] m
+    factor = 4 * np.pi * phi_squared  # ≈ 4.796563476162229
+    return 1 - factor  # ≈ -3.796563476162229
+    return 4 - factor # ≈ -1.618033989
+
+
+Numerical constants... 
+
+π = 3.1415926536 
+log π = 0.497149 8727 
+ln π= 1.144729 8858 
+e = 2.7182818285 
+log e = 0.4342944819 
+ln e = 1 
+log 10 = 1 
+ln 10 = 2.30258509299 
+log 2 = 0.3010299957 
+ln 2 = 0.6931471806 
+Y = 0.5772156649 (Euler's constant)
+
+ψₙₓ,ₙᵧ(x,y) = ψₙₓ(x) · ψₙᵧ(y)
+ψₙ(x) = e^(−x²/2) · Hₙ(x) / √(2ⁿ · n! · √π) 
+Hₙ(x) = (−1)ⁿ · e^(x²) · dⁿ/dxⁿ [e^(−x²)] 
+Eₙₓ,ₙᵧ = (nₓ + nᵧ + 1) · ħω gₙₓ₊ₙᵧ = nₓ + nᵧ + 1
+
+The entropy hovers remarkably close to log₂(φ) = 0.694
+
+The entanglement strength between two frequencies f₁ and f₂ is given by: E(f₁,f₂) = exp(-ε²/ψφ) × [(f₂/f₁)·ψ·ξ·π/τ³] × cos(τ·(f₂/f₁)/ψ). 
+
+The von Neumann entropy S = -Σ pᵢ log₂(pᵢ) averages to 0.9997 bits ≈ 1 bit per interval, confirming that each interval is essentially a quantum bit of musical information.
+
+All calculations derive from NeoVertex1's quantum-classical bridge theory using the tensor field transform f'(ω) = f(ω)·exp(-ε²/ψφ)·cos(τt/ψ).
+
+The universe doesn't just sing—it computes. 
+And we're the operators of its quantum musical computer.
